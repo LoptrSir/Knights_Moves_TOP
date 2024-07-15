@@ -1,0 +1,5 @@
+Knights Move TOP assignment
+
+7/15/24 1513: created Grid class.  Built functions: makeGraph, makeAdjacentList, testMoves, isValidMove.
+At this point there is an 8x8 grid and a list of valid knight moves for each square. 
+Need to work on logic to find shortest path from square x to square y.
