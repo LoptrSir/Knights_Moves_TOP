@@ -7,14 +7,15 @@ class Grid {
   constructor() {
     this._size = 8;
     this._gridArray = [];
-    // this._adjacentList = [];
     this._adjacentList = {};
   }
 
   makeGraph() {
     for (let i = 0; i < this._size; i++) {
+      //makes row
       this._gridArray[i] = [];
       for (let j = 0; j < this._size; j++) {
+        //makes cell
         let value = [i, j];
         this._gridArray[i][j] = value;
       }
@@ -34,7 +35,6 @@ class Grid {
   }
 
   testMoves(cell) {
-    //Do I need a reference to the original cell?
     let [i, j] = cell;
     const moves = [
       [i + 2, j + 1],
@@ -46,24 +46,17 @@ class Grid {
       [i - 1, j + 2],
       [i - 1, j - 2],
     ];
-
     this._adjacentList[cell] = [];
 
     for (let [newI, newJ] of moves) {
       if (this.isValidMove(newI, newJ)) {
-        // this._adjacentList.push([newI, newJ]);
         this._adjacentList[cell].push([newI, newJ]);
       }
     }
   }
 
   isValidMove(i, j) {
-    // if (i >= 0 && i < this._size && j >= 0 && j < this._size) {
-    //   return true;
-    // }
-    // return false;
-   return i >= 0 && i < this._size && j >= 0 && j < this._size
-
+    return i >= 0 && i < this._size && j >= 0 && j < this._size;
   }
 }
 
