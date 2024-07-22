@@ -82,9 +82,10 @@ class BFS {
 
     while (this._queue.length > 0) {
       let currentCell = this._queue.shift();
+      console.log('bfsCurrentCell:', currentCell, 'parent', this._parent);
       if (JSON.stringify(currentCell) === JSON.stringify(targetCell)) {
         console.log("BFS: Eureka!", startCell, targetCell);
-        return;
+        return this.reconstructPath(targetCell);
       }
 
       let adjacentCells = this._grid._adjacentList[currentCell];
@@ -99,7 +100,19 @@ class BFS {
     }
   }
 
-  reconstructPath(startCell, targetCell) {}
+  reconstructPath(targetCell) {
+    let path = [];
+    let currentCell = targetCell;
+    
+    while ( currentCell !== null) {
+      path.push(currentCell);
+      currentCell = this._parent[JSON.stringify(currentCell)];
+    }
+    path.reverse();
+    // console.log(`ReconstructedPath: ${path}`);
+    console.log('ReconstructedPath:' ,path);
+    return path;
+  }
 }
 
 function myFooter() {
@@ -120,3 +133,4 @@ const testGrid = new Grid();
 testGrid.makeGraph();
 const testBFS = new BFS(testGrid);
 testBFS.bfs([0, 0], [3, 3]);
+testBFS.bfs([0, 0], [7, 7]);
