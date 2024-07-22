@@ -1,5 +1,9 @@
 Knights Move TOP assignment
 
+7/22 1217 reconstrucPath built.  app is working
+7/19 1520 BFS seems to be working, need to build reconstructPath().
+1011: current code works to create a valid list of kinghts moves.  HOWEVER, this is not the most efficient method for finding the shortest path.  I need to call the code path in relation to a BreadthFirstSearch on the relevant cell.
+
 7/15/24 1513: created Grid class.  Built functions: makeGraph, makeAdjacentList, testMoves, isValidMove.
 At this point there is an 8x8 grid and a list of valid knight moves for each square. 
 Need to work on logic to find shortest path from square x to square y.
